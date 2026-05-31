@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact — Manager AIMÉ</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+
+:root{
+–p1:#7C3AED;–p2:#A855F7;–p3:#EC4899;–p4:#F472B6;
+–dark:#09060F;–dark2:#110D1A;–card:#17102A;
+–border:rgba(168,85,247,0.15);–text:#F3F0FF;–muted:#7C6FA0;
+–grad:linear-gradient(135deg,var(–p1),var(–p3));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(–dark);font-family:‘DM Sans’,sans-serif;color:var(–text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:999;
+background:rgba(9,6,15,0.85);backdrop-filter:blur(16px);
+border-bottom:1px solid var(–border);padding:0 20px}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{font-size:18px;font-weight:800;color:#fff}
+.nav-logo span{background:var(–grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:14px;font-weight:500;color:var(–muted);transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(–grad) !important;color:#fff !important;-webkit-text-fill-color:#fff !important;
+padding:8px 20px;border-radius:20px;font-weight:700 !important;font-size:13px !important}
+.nav-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
+
+@media(max-width:640px){
+.nav-links{display:none;position:fixed;top:60px;left:0;right:0;
+background:rgba(9,6,15,0.98);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid var(–border)}
+.nav-links.open{display:flex}
+.nav-toggle{display:block}
+}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;
+border-radius:50px;font-weight:700;font-size:15px;cursor:pointer;border:none;transition:all .2s}
+.btn-grad{background:var(–grad);color:#fff;box-shadow:0 8px 32px rgba(168,85,247,0.35)}
+.btn-grad:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(168,85,247,0.5)}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid var(–border)}
+.btn-outline:hover{border-color:var(–p2);color:var(–p2)}
+
+/* SECTIONS */
+.section{padding:80px 20px;max-width:960px;margin:0 auto}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+background:var(–grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.sec-title{font-size:clamp(28px,5vw,42px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:16px}
+.sec-body{font-size:16px;color:var(–muted);line-height:1.7;max-width:560px}
+
+/* CARDS */
+.card{background:var(–card);border:1px solid var(–border);border-radius:20px;padding:28px;
+transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(168,85,247,0.35)}
+.card-icon{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,rgba(124,58,237,0.2),rgba(236,72,153,0.2));
+display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+.card-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
+.card-body{font-size:14px;color:var(–muted);line-height:1.6}
+
+/* GRID */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+
+/* FOOTER */
+footer{border-top:1px solid var(–border);padding:32px 20px;text-align:center;font-size:12px;color:var(–muted)}
+footer a{color:var(–p2)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
+.reveal.on{opacity:1;transform:none}
+
+/* HERO GLOW */
+.glow{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0}
+.glow1{width:400px;height:400px;background:rgba(124,58,237,0.15);top:-100px;left:-100px}
+.glow2{width:300px;height:300px;background:rgba(236,72,153,0.12);top:50px;right:-50px}
+
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Manager <span>AIMÉ</span></a>
+    <button class="nav-toggle" onclick="toggleMenu()" id="toggle">☰</button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html" style="color:#fff">Contact</a>
+      <a href="contact.html" class="nav-cta">Commencer →</a>
+    </div>
+  </div>
+</nav>
+
+<div style="padding-top:100px">
+<div class="section">
+  <div class="sec-label reveal">Parlons-en</div>
+  <h1 class="sec-title reveal">Contacte-moi</h1>
+  <p class="sec-body reveal">Premier échange gratuit et sans engagement. Je réponds dans les 24h.</p>
+
+  <div class="grid2" style="margin-top:48px;align-items:start">
+
+```
+<!-- Links -->
+<div style="display:flex;flex-direction:column;gap:12px" class="reveal">
+  <a href="https://wa.me/2250777551130" target="_blank" class="card" style="display:flex;align-items:center;gap:14px;padding:18px 22px">
+    <span style="font-size:22px">💬</span>
+    <div><div style="font-size:14px;font-weight:600;color:#fff">WhatsApp</div><div style="font-size:12px;color:var(--muted)">+225 07 77 55 11 30</div></div>
+    <span style="margin-left:auto;color:var(--p2)">→</span>
+  </a>
+  <a href="https://instagram.com/aime.henri100" target="_blank" class="card" style="display:flex;align-items:center;gap:14px;padding:18px 22px">
+    <span style="font-size:22px">📸</span>
+    <div><div style="font-size:14px;font-weight:600;color:#fff">Instagram</div><div style="font-size:12px;color:var(--muted)">@aime.henri100</div></div>
+    <span style="margin-left:auto;color:var(--p2)">→</span>
+  </a>
+  <a href="mailto:makayaaimehenri@gmail.com" class="card" style="display:flex;align-items:center;gap:14px;padding:18px 22px">
+    <span style="font-size:22px">📧</span>
+    <div><div style="font-size:14px;font-weight:600;color:#fff">Email</div><div style="font-size:12px;color:var(--muted)">makayaaimehenri@gmail.com</div></div>
+    <span style="margin-left:auto;color:var(--p2)">→</span>
+  </a>
+</div>
+
+<!-- Form -->
+<div class="card reveal" style="padding:32px">
+  <h3 style="font-size:18px;font-weight:700;color:#fff;margin-bottom:24px">Envoie ta demande</h3>
+  <div style="margin-bottom:14px">
+    <label style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--p2);display:block;margin-bottom:6px">Prénom *</label>
+    <input id="f-name" type="text" placeholder="Ex: Sophie" style="width:100%;background:#0D0914;border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:#fff;font-size:14px;outline:none;font-family:inherit"/>
+  </div>
+  <div style="margin-bottom:14px">
+    <label style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--p2);display:block;margin-bottom:6px">WhatsApp ou Email *</label>
+    <input id="f-contact" type="text" placeholder="+33 6 ..." style="width:100%;background:#0D0914;border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:#fff;font-size:14px;outline:none;font-family:inherit"/>
+  </div>
+  <div style="margin-bottom:14px">
+    <label style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--p2);display:block;margin-bottom:6px">Compte OnlyFans (optionnel)</label>
+    <input id="f-of" type="text" placeholder="onlyfans.com/..." style="width:100%;background:#0D0914;border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:#fff;font-size:14px;outline:none;font-family:inherit"/>
+  </div>
+  <div style="margin-bottom:20px">
+    <label style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--p2);display:block;margin-bottom:6px">Message</label>
+    <textarea id="f-msg" placeholder="Parle-moi de toi et de tes objectifs..." rows="4" style="width:100%;background:#0D0914;border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:#fff;font-size:14px;outline:none;font-family:inherit;resize:vertical"></textarea>
+  </div>
+  <button onclick="sendForm()" class="btn btn-grad" style="width:100%;justify-content:center">Envoyer →</button>
+  <div id="f-success" style="display:none;text-align:center;padding:16px;color:#10B981;font-weight:600;margin-top:12px">✅ Message envoyé ! Je te réponds dans les 24h.</div>
+</div>
+```
+
+  </div>
+</div>
+</div>
+<script>
+function sendForm(){
+  const name=document.getElementById('f-name').value.trim();
+  const contact=document.getElementById('f-contact').value.trim();
+  const of=document.getElementById('f-of').value.trim();
+  const msg=document.getElementById('f-msg').value.trim();
+  if(!name||!contact){alert('Merci de remplir ton prénom et ton contact.');return;}
+  const text=`Nouvelle demande — Manager AIMÉ!%0A%0APrénom: ${name}%0AContact: ${contact}%0AOnlyFans: ${of||'Non renseigné'}%0AMessage: ${msg}`;
+  window.open(`https://wa.me/2250777551130?text=${text}`,'_blank');
+  document.getElementById('f-success').style.display='block';
+}
+</script>
+
+<footer>
+  <p>© 2026 Manager AIMÉ · OnlyFans Management · <a href="https://instagram.com/aime.henri100" target="_blank">@aime.henri100</a></p>
+</footer>
+<script>
+function toggleMenu(){
+  document.getElementById('nav-links').classList.toggle('open');
+  document.getElementById('toggle').textContent = document.getElementById('nav-links').classList.contains('open') ? '✕' : '☰';
+}
+const obs = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
